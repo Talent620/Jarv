@@ -1,0 +1,192 @@
+# Jarvis V2 — Konfiguracja
+# Edytuj ten plik pod swoje potrzeby
+
+[llm]
+host        = "http://localhost:11434"
+model       = "llama3.1"
+temperature = 0.5
+timeout     = 120.0
+
+[memory]
+dir                = "~/.jarvis/memory_db"
+collection         = "jarvis_pamiec"
+archive_collection = "jarvis_archive"
+embedding_model    = "paraphrase-multilingual-MiniLM-L12-v2"
+dedup_threshold    = 0.08
+search_limit       = 5
+update_threshold   = 0.35
+
+[speech]
+whisper_model       = "small"
+language            = "pl"
+sample_rate         = 16000
+record_max_seconds  = 12.0
+silence_seconds     = 1.5
+silence_threshold   = "auto"
+calibration_seconds = 1.5
+compute_type        = "int8"
+
+[tts]
+rate                    = 175
+volume                  = 1.0
+prefer_voice_contains   = ["polish", "pl-pl", "pl_"]
+use_coqui               = false
+
+[ui]
+user_name           = "Artur"
+default_mode        = "text"
+history_size        = 20
+confirm_destructive = true
+
+[wake_word]
+enabled   = false
+model     = "hey_jarvis"
+threshold = 0.5
+
+[learning]
+db_path          = "~/.jarvis/learning.db"
+enable_patterns  = true
+patterns_min_uses= 3
+history_keep     = 500
+
+[logging]
+file    = "~/.jarvis/jarvis.log"
+level   = "INFO"
+max_mb  = 5
+backups = 3
+
+[inventory]
+enabled    = true
+db_path    = "~/.jarvis/inventory.db"
+auto_fetch = false
+
+[weather]
+enabled = true
+city    = "Warsaw"
+
+# ═══════════════════════════════════════════
+# ESP32 — STEROWANIE DIY
+# Ustaw enabled=true i podaj IP swojego ESP32
+# ═══════════════════════════════════════════
+[esp32]
+enabled      = false
+host         = "http://192.168.1.100"
+timeout      = 3.0
+max_volts    = 12.0
+mqtt_enabled = false
+mqtt_broker  = "192.168.1.1"
+mqtt_port    = 1883
+
+[[esp32.devices]]
+name     = "przekaznik_1"
+pin      = 2
+type     = "relay"
+aliases  = ["przekaźnik", "relay 1", "główny"]
+inverted = false
+
+[[esp32.devices]]
+name     = "przekaznik_2"
+pin      = 4
+type     = "relay"
+aliases  = ["relay 2", "drugi"]
+
+[[esp32.devices]]
+name    = "led_warsztat"
+pin     = 5
+type    = "pwm"
+aliases = ["światło", "lampa", "oświetlenie", "led"]
+
+[[esp32.devices]]
+name    = "pompa"
+pin     = 16
+type    = "relay"
+aliases = ["woda", "nawadnianie", "pompa oleju"]
+
+[[esp32.devices]]
+name    = "wentylator"
+pin     = 17
+type    = "relay"
+aliases = ["wentylacja", "chłodzenie"]
+
+[telegram]
+enabled = false
+token   = ""
+chat_id = 0
+
+# ═══════════════════════════════════════════
+# V3 — NOWE MODUŁY
+# ═══════════════════════════════════════════
+
+[scheduler]
+enabled = true
+db_path = "~/.jarvis/scheduler.db"
+
+[calendar]
+enabled = true
+db_path = "~/.jarvis/calendar.db"
+
+[research]
+enabled     = true
+db_path     = "~/.jarvis/research.db"
+default_hour   = 8
+default_minute = 0
+max_results    = 5
+
+[history]
+enabled     = true
+db_path     = "~/.jarvis/history.db"
+max_entries = 1000
+
+# ═══════════════════════════════════════════
+# Jarvis Master Edition — Nowe Moduły
+# ═══════════════════════════════════════════
+
+[user_profile]
+enabled = true
+db_path = "~/.jarvis/profile.db"
+
+[project_memory]
+enabled = true
+db_path = "~/.jarvis/projects.db"
+
+[piper]
+enabled = true
+
+[ocr]
+enabled = true
+
+[vision]
+enabled = true
+
+[windows]
+enabled = true
+
+[home_assistant]
+enabled = true
+
+[web_agent]
+enabled = true
+
+[multi_agent]
+enabled = true
+
+[semantic_memory]
+enabled = true
+db_path = "~/.jarvis/semantic_db"
+
+[stt_whisper]
+enabled = true
+
+[ocr_premium]
+enabled = true
+
+[deep_research]
+enabled = true
+max_sources = 5
+
+[model_orchestration]
+enabled = true
+
+[autonomy]
+enabled = true
+interval_mins = 15

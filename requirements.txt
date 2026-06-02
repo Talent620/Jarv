@@ -1,0 +1,56 @@
+# ── Core ─────────────────────────────────────────────────────────────────────
+requests>=2.32,<3
+numpy>=1.26,<2.2
+chromadb>=1.0,<2
+sentence-transformers>=3.3,<6
+tomli>=2.0; python_version < "3.11"
+
+# ── Voice ────────────────────────────────────────────────────────────────────
+faster-whisper>=1.0,<2
+sounddevice>=0.4,<1
+scipy>=1.13,<2
+pyttsx3==2.98
+
+# ── Wake word — wymaga Python <3.12 i tflite-runtime (unavail. na py3.12+)
+# Jeśli używasz Python 3.12 — WYKOMENTUJ tę linię i użyj manualne --no-deps
+# openwakeword>=0.6
+
+# ── Web ──────────────────────────────────────────────────────────────────────
+fastapi>=0.111,<1
+uvicorn[standard]>=0.29,<1
+python-multipart>=0.0.9
+
+# ── System ───────────────────────────────────────────────────────────────────
+psutil>=5.9,<7
+
+# ── ESP32 / MQTT (opcjonalne) ─────────────────────────────────────────────────
+# paho-mqtt>=2.0,<3
+
+# ── Coqui TTS (opcjonalne, lepszy głos ~500MB) ───────────────────────────────
+# TTS>=0.22
+
+# ── Telegram (opcjonalne) ────────────────────────────────────────────────────
+# python-telegram-bot>=20
+
+# ── Narzędzia pomocnicze ─────────────────────────────────────────────────────
+duckduckgo-search>=6
+
+# ── V3 — Scheduler / Przypomnienia ──────────────────────────────────────────
+APScheduler>=3.10,<5
+
+# ── V3 — Dźwięk cross-platform ───────────────────────────────────────────────
+soundfile>=0.12,<1
+
+# ── Master Edition ───────────────────────────────────────────────────────────
+# Brak zewnętrznych zależności dla User Profile i Project Memory (używa sqlite3)
+
+# ── Agenci ───────────────────────────────────────────────────────────────────
+playwright>=1.0
+fastapi>=0.68
+uvicorn>=0.15
+websockets>=10.0
+pytest
+faiss-cpu
+chromadb
+pytesseract
+playwright
